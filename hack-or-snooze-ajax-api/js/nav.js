@@ -47,6 +47,8 @@ function navShowSubmitForm(evt) {
   // TODO create jQuery objects in main
   $navCreateNewStoryForm.show() // TODO
 }
+
+
   //UNDER THE HOOD, navbar does not change during this part
     // user fills out form & clicks submit button ??is there another function for this? 
     // send POST request to API
