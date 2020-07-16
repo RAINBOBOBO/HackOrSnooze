@@ -2,6 +2,8 @@
 
 // This is the global list of the stories, an instance of StoryList
 let storyList;
+// why do we need to declare a storyList object in main.js AND in stories.js
+
 
 
 /**
@@ -45,3 +47,26 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+
+// From Prompt
+
+// only allow logged in users to create a story 
+    // check for loggin / user credentials. if !logged send error, if logged in continue
+    // Once user logged in
+        // info would we have here: username, loginToken
+        // userInfo will be passed while adding story to storiesList
+// POST request to API
+    // send in header, content-type app/JSON
+    // add this info as a object in the body
+          // this.author = storyObj.author; // author of story (not user who submitted)
+          // this.title = storyObj.title;   // title of story
+          // this.url = storyObj.url;       // hostname.com - domain of 
+          // this.username = storyObj.username;
+          // this.storyId = storyObj.storyId;
+          // this.createdAt = storyObj.createdAt;
+          // this.updatedAt = storyObj.updatedAt;
+
+    //  expected response: newly created story
+// append to DOM with function with addStory() (in models.js)
+

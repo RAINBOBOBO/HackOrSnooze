@@ -40,6 +40,9 @@ async function start() {
   storyList = await StoryList.getStories();
   $storiesLoadingMsg.remove();
 
+  // do we need to pass in an argument to putStoriesOnPage();
+    // if given arg, won't need to declare storyList again in stories.js
+    // will we see a bug here?
   putStoriesOnPage();
 }
 
