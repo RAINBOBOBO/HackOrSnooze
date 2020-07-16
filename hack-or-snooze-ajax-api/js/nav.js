@@ -53,9 +53,13 @@ function navShowSubmitForm(evt) {
     // user fills out form & clicks submit button ??is there another function for this? 
     // send POST request to API
 function navCreateNewStory() {
-    // listen for submit button click
-    // after the user submits new story, reset form and hide form
-    $navCreateNewStoryForm.hide() // TODO
-    // refresh the stories list after sending POST request to show new list containing newstory
-    putStoriesOnPage()
+  // listen for submit button click
+  // check if the user is logged in
+  // if user is not logged in, display error message and do nothing
+  // if user is logged in: 
+  // 1. call addStory()
+  // 2. hide the form
+  // 3. refresh the page to reflect the change
+  $submitForm.hide() // TODO
+  putStoriesOnPage()
 }

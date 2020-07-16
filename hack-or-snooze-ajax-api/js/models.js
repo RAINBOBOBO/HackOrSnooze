@@ -74,16 +74,13 @@ class StoryList {
    * Returns the new story object
    */
 
-  async addStory( /* user, newStory */ ) {
+  async addStory(user, newStory) {
     // TODO: complete this function
 
     // From Prompt
+    let response = await axios.post(`${BASE_URL}/stories`, );
 
-    // only allow logged in users to create a story 
-        // check for loggin / user credentials. if !logged send error, if logged in continue
-        // Once user logged in
-            // info would we have here: username, loginToken
-            // userInfo will be passed while adding story to storiesList
+    // userInfo will be passed while adding story to storiesList
     // POST request to API
         // send in header, content-type app/JSON
         // add this info as a object in the body
