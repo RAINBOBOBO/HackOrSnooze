@@ -46,8 +46,10 @@ function navShowSubmitForm(evt) {
   evt.preventDefault();
   // on click, show() the hidden stories form
   $submitForm.show()
+
 }
-//TODO: make evt listener for this ^
+//TODO-WouldBeNice: add click listener to toggle showing/hiding
+$("nav").on("click", navShowSubmitForm)
 
 
   //UNDER THE HOOD, navbar does not change during this part
@@ -60,12 +62,12 @@ function navCreateNewStory(evt) {
   // check if the user is logged in
   // if user is not logged in, display error message and do nothing
   // if user is logged in: 
-  // 1. call addStory()
-  // 2. hide the form
-  // 3. refresh the page to reflect the change
-  storyList.addStory();
+    // 1. call addStory()
+    // 2. hide the form
+    // 3. refresh the page to reflect the change
+  storyList.addStory(); 
   $submitForm.hide();
-  putStoriesOnPage();
+  putStoriesOnPage();  // BUG: returns an object? should it?
 }
 //TODO: make sure you dont need to refresh to update the story list
 
