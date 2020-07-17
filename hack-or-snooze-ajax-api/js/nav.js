@@ -44,7 +44,23 @@ function navShowSubmitForm(evt) {
   // console.debug("navShowSubmitForm", evt);
   evt.preventDefault();
   // on click, show() the hidden stories form
-  $submitForm.show()
+  $submitForm.show();
 }
 //TODO-WouldBeNice: add click listener to toggle showing/hiding form
-$("nav").on("click", navShowSubmitForm)
+$navSubmit.on("click", navShowSubmitForm);
+
+// function for changing the screen to show the favorites
+// - Favorites button on the nav bar should hide the current stories and show the user's favorites list by
+//   making a get req. for a list of the user's favorites.
+function navShowFavorites(evt) {
+  console.debug("navShowFavorites", evt);
+  evt.preventDefault();
+  hidePageComponents();
+
+  if (currentUser.favorites.length === 0) {
+    $favoritesEmptyMsg.show();
+  } else {
+    $favoriteStoriesList.show();
+  }
+}
+$navFavorites.on("click", navShowFavorites);
