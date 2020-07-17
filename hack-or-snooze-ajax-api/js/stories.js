@@ -19,6 +19,7 @@ function generateStoryMarkup(story) {
   return $(`
       <li id="${story.storyId}">
         <a class="story-link" href="${story.url}" target="a_blank">
+          <i class="far fa-star"></i>
           ${story.title}
         </a>
         <small class="story-hostname">(${hostName})</small>
@@ -40,13 +41,36 @@ function putStoriesOnPage() {
   $allStoriesList.empty();
   // loop through all of our stories and generate HTML for them
   for (let story of storyList.stories) {
-    // console.log("story", story, "storyList.stories", storyList.stories);
-    const markup = generateStoryMarkup(story);
-    // console.log("markup",markup, "generateStoryMarkup(story)", generateStoryMarkup(story))
-    $allStoriesList.append(markup);
+    putOneStoryOnPage(story, $allStoriesList);
   }
 
   $allStoriesList.show();
 }
 
+function putOneStoryOnPage(story, $thisStoryList) {
+  // console.log("story", story, "storyList.stories", storyList.stories);
+  const markup = generateStoryMarkup(story);
+  // console.log("markup",markup, "generateStoryMarkup(story)", generateStoryMarkup(story))
+  $thisStoryList.append(markup);
+}
+
+// CODEREVIEW: Consider giving different name and moving into stories.js
+  //UNDER THE HOOD, navbar does not change during this part
+    // user fills out form & clicks submit button ??is there another function for this? 
+    // send POST request to API
+async function createNewStory(evt) {
+  console.debug("createNewStory", evt);
+  evt.preventDefault();
+
+  // // TODO-WouldBeNice: throw error if user not logged in
+
+  // send POST request to API and save response as a new object 
+  let newStory = await storyList.addStory();
+  // updates story list on page without refreshing
+  putStoriesOnPage();  
+  // hide the form
+  $submitForm.hide();
+}
+
+$("#submit-form").on("submit", createNewStory);
 

@@ -37,28 +37,6 @@ function updateNavOnLogin() {
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
-
-
-// CODEREVIEW: Consider giving different name and moving into stories.js
-  //UNDER THE HOOD, navbar does not change during this part
-    // user fills out form & clicks submit button ??is there another function for this? 
-    // send POST request to API
-async function navCreateNewStory(evt) {
-  console.debug("navCreateNewStory", evt);
-  evt.preventDefault();
-
-  // // TODO-WouldBeNice: throw error if user not logged in
-
-  // send POST request to API and save response as a new object 
-  let newStory = await storyList.addStory();
-  // updates story list on page without refreshing
-  putStoriesOnPage();  
-  // hide the form
-  $submitForm.hide();
-}
-
-$("#submit-form").on("submit", navCreateNewStory);
-
 /** When user clicks on a create story link, show a (hidden) form to create story */
 /**Building The UI for New Story Form/Add New Story */
 
