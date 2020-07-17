@@ -93,7 +93,9 @@ class StoryList {
         }
     });
     console.log(response);
-    // Thursday 5PM: ERROR 500; we don't have event listener
+    // storyList.stories.push(response);
+    // DEBUGGING: tried to manually add story to storylist
+    // $allStoriesList.prepend(response); 
     // // From Prompt
 
     // userInfo will be passed while adding story to storiesList

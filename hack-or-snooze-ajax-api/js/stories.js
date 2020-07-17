@@ -32,16 +32,21 @@ function generateStoryMarkup(story) {
 
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
-
+// TODO: Why does calling this from navCreateNewStory(evt) not refresh the list?
+          // storyList now updates in real time
+          // $allStoriesList does not update in real time
+          // do we need to add a delegate to run this after submit? 
 function putStoriesOnPage() {
-  console.debug("putStoriesOnPage");
+  console.debug("putStoriesOnPage", "storyList.stories", storyList.stories);
 
   // empty out that part of the page
+  // console.debug("$allStoriesList.empty()", $allStoriesList.empty(), "$allStoriesList.show()", $allStoriesList.show())
   $allStoriesList.empty();
-
   // loop through all of our stories and generate HTML for them
   for (let story of storyList.stories) {
+    console.log("story", story, "storyList.stories", storyList.stories)
     const markup = generateStoryMarkup(story);
+    console.log("markup",markup, "generateStoryMarkup(story)", generateStoryMarkup(story))
     $allStoriesList.append(markup);
   }
 

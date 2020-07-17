@@ -42,7 +42,7 @@ function updateNavOnLogin() {
 /** When user clicks on a create story link, show a (hidden) form to create story */
 
 function navShowSubmitForm(evt) {
-  console.debug("navShowSubmitForm", evt);
+  // console.debug("navShowSubmitForm", evt);
   evt.preventDefault();
   // on click, show() the hidden stories form
   $submitForm.show()
@@ -55,7 +55,7 @@ $("nav").on("click", navShowSubmitForm)
   //UNDER THE HOOD, navbar does not change during this part
     // user fills out form & clicks submit button ??is there another function for this? 
     // send POST request to API
-function navCreateNewStory(evt) {
+async function navCreateNewStory(evt) {
   console.debug("navCreateNewStory", evt);
   evt.preventDefault();
   // listen for submit button click
@@ -65,10 +65,11 @@ function navCreateNewStory(evt) {
     // 1. call addStory()
     // 2. hide the form
     // 3. refresh the page to reflect the change
-  storyList.addStory(); 
-  $submitForm.hide();
+  await storyList.addStory(); 
   putStoriesOnPage();  // BUG: returns an object? should it?
+  $submitForm.hide();
 }
 //TODO: make sure you dont need to refresh to update the story list
 
 $("#submit-form").on("submit", navCreateNewStory);
+// create story obj and add to story list? 
