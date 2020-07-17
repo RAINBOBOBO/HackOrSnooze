@@ -74,21 +74,22 @@ class StoryList {
    * Returns the new story object
    */
 
-  async addStory(user, newStory) {
-    console.debug("addStory", user, newStory)
+  async addStory() {
+    console.debug("addStory");
     // TODO: complete this function
     // arguments
         // user: in global scope, called currentUser
         // newStory, inputs from form
     
-
+    console.log("currentUser is ", currentUser);
+    console.log("author is ", $('#submit-author').val(), "title ", $('#submit-title').val(), "url", $('#submit-url').val())
     let response = await axios.post(`${BASE_URL}/stories`, {
         "token": currentUser.loginToken, 
         "story": {
           // TODO ? refactor to be neater
           "author": $('#submit-author').val(),
           "title":  $('#submit-title').val(),
-          "url":    $('submit-url').val(),
+          "url":    $('#submit-url').val()
         }
     });
     console.log(response);

@@ -62,9 +62,9 @@ function navCreateNewStory(evt) {
   // 1. call addStory()
   // 2. hide the form
   // 3. refresh the page to reflect the change
-  addStory()
-  $submitForm.hide()
-  putStoriesOnPage()
+  storyList.addStory();
+  $submitForm.hide();
+  putStoriesOnPage();
 }
 
 $("#submit-form").on("submit", navCreateNewStory);
