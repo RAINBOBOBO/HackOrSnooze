@@ -136,3 +136,8 @@ function updateUIOnUserLogin() {
   * function to listen for click on a star and make a post req. based on the star's class (far/fas)
  
 */
+
+// function to make a get req. for the favorites list
+function getUserFavorites() {
+  console.log("currentUser is ", currentUser);
+}
