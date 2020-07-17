@@ -65,7 +65,12 @@ async function createNewStory(evt) {
   // // TODO-WouldBeNice: throw error if user not logged in
 
   // send POST request to API and save response as a new object 
-  let newStory = await storyList.addStory();
+  let newStoryInfo = {
+    author: $("#submit-author").val(),
+    title:  $("#submit-title").val(),
+    url:    $("#submit-url").val(),
+  };
+  await storyList.addStory(currentUser, newStoryInfo);
   // updates story list on page without refreshing
   putStoriesOnPage();  
   // hide the form

@@ -82,47 +82,41 @@ class StoryList {
     // why did we choose to call these objs instead of POJO
     // navigators: question logic and refactor as driver coodes
     
-  async addStory() {
+  //newStory {
+  //    author: authorName
+  //    title: titleName
+  //    url: url
+  // }
+
+  //user {
+    // this.username
+    // this.name
+    // this.createdAt
+    // this.updatedAt
+    // this.favorites
+    // this.ownStories
+    // this.loginToken
+    // }
+  
+  async addStory(user, newStory) {
     // console.debug("addStory");
    
     // console.log("currentUser is ", currentUser);
     // console.log("author is ", $('#submit-author').val(), "title ", $('#submit-title').val(), "url", $('#submit-url').val())
     let response = await axios.post(`${BASE_URL}/stories`, {
-        "token": currentUser.loginToken, 
+        "token": user.loginToken, 
         "story": {
-          "author": $submitAuthor.val(),
-          "title":  $submitTitle.val(),
-          "url":    $submitURL .val()
+          "author": newStory.author,
+          "title":  newStory.title,
+          "url":    newStory.url
         }
     });
     // console.log("THIS IS RESPONSE", response.data.story);
 
-    let newStory = new Story(response.data.story);
-    storyList.stories.unshift(newStory);
+    let newStoryObject = new Story(response.data.story);
+    storyList.stories.unshift(newStoryObject);
 
     return newStory;
-    // // From Prompt
-
-    // userInfo will be passed while adding story to storiesList
-    // POST request to API
-        // ? possibly unnecessary? send in header, content-type app/JSON
-        // add this info as a object in the body
-              // author = storyObj.author; // author of story (not user who submitted)
-              // title = storyObj.title;   // title of story
-              // url = storyObj.url;       // hostname.com - domain of 
-              // username = storyObj.username;
-              
-
-        //  expected response: newly created story object
-              // author / author of story (not user who submitted)
-              // title / title of story
-              // url / hostname.com - domain of 
-              // username 
-              // storyId 
-              // createdAt
-              // updatedAt
-    // append to DOM with function with addStory() (in models.js)
-
   }
 }
 
