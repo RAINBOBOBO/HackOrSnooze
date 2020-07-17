@@ -59,7 +59,7 @@ function putOneStoryOnPage(story, $thisStoryList) {
     // user fills out form & clicks submit button ??is there another function for this? 
     // send POST request to API
 async function createNewStory(evt) {
-  console.debug("createNewStory", evt);
+  // console.debug("createNewStory", evt);
   evt.preventDefault();
 
   // // TODO-WouldBeNice: throw error if user not logged in
@@ -78,4 +78,36 @@ async function createNewStory(evt) {
 }
 
 $("#submit-form").on("submit", createNewStory);
+
+
+/** Functions related to favorites */
+
+//add EventListener to star
+  // logic: if star#empty addStoryToFavorites(), else deleteStoryFromFavorite()
+function checkIfStoryIsFavorited(evt){
+  console.log("$allStoriesList is", $allStoriesList, evt.target)
+  // (evt.target.classList.contains("far")) ? {addStoryToFavorites(evt) : deleteStoryFromFavorites(evt);
+}
+
+($allStoriesList).on("click", checkIfStoryIsFavorited)
+// TODO: Event listerner not working
+
+function addStoryToFavorites(evt){
+  console.log(addStoryToFavorites,evt);
+  // evt.target
+  // - Add a favorite by clicking on an empty star next to a story title 
+  // - add eventlistener to stars to track which story being used
+  // - send a POST request to add story into the user's favorites list in server
+  // - rewrite local currentUser with server's info
+  // - change empty star to solid star
+  // pull latest 
+  updateUserFavorites()
+}
+// ?is this the best delegate?
+$allStoriesList.on("click", addStoryToFavorites())
+
+function deleteStoryFromFavorites(evt){
+
+}
+  
 
