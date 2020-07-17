@@ -47,6 +47,7 @@ function navShowSubmitForm(evt) {
   // on click, show() the hidden stories form
   $submitForm.show()
 }
+//TODO: make evt listener for this ^
 
 
   //UNDER THE HOOD, navbar does not change during this part
@@ -66,5 +67,6 @@ function navCreateNewStory(evt) {
   $submitForm.hide();
   putStoriesOnPage();
 }
+//TODO: make sure you dont need to refresh to update the story list
 
 $("#submit-form").on("submit", navCreateNewStory);
