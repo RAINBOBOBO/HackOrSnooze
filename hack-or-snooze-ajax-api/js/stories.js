@@ -44,9 +44,9 @@ function putStoriesOnPage() {
   $allStoriesList.empty();
   // loop through all of our stories and generate HTML for them
   for (let story of storyList.stories) {
-    console.log("story", story, "storyList.stories", storyList.stories)
+    // console.log("story", story, "storyList.stories", storyList.stories);
     const markup = generateStoryMarkup(story);
-    console.log("markup",markup, "generateStoryMarkup(story)", generateStoryMarkup(story))
+    // console.log("markup",markup, "generateStoryMarkup(story)", generateStoryMarkup(story))
     $allStoriesList.append(markup);
   }
 

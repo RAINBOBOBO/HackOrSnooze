@@ -26,8 +26,8 @@ class Story {
   /** Parses hostname out of URL and returns it. */
 
   getHostName() {
-    // UNIMPLEMENTED: complete this function!
-    return "hostname.com";
+    // console.debug("host name is ", new URL(this.url).hostname)
+    return new URL(this.url).hostname;
   }
 }
 
@@ -92,10 +92,12 @@ class StoryList {
           "url":    $('#submit-url').val()
         }
     });
-    console.log(response);
+    console.log("THIS IS RESPONSE", response.data.story);
     // storyList.stories.push(response);
     // DEBUGGING: tried to manually add story to storylist
-    // $allStoriesList.prepend(response); 
+
+    let newStoryHTML = new Story(response.data.story);
+    $allStoriesList.prepend(generateStoryMarkup(newStoryHTML)); 
     // // From Prompt
 
     // userInfo will be passed while adding story to storiesList
