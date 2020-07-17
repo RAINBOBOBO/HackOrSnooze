@@ -9,7 +9,7 @@
 function navAllStories(evt) {
   console.debug("navAllStories", evt);
   hidePageComponents();
-  putStoriesOnPage(); //TODO: make this function
+  putStoriesOnPage();
 }
 
 $body.on("click", "#nav-all", navAllStories);
@@ -31,25 +31,13 @@ $navLogin.on("click", navLoginClick);
 
 function updateNavOnLogin() {
   console.debug("updateNavOnLogin");
-  $(".main-nav-links").show();
+  $navMainLinks.show();
   $navLogin.hide();
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
-// create conductor with button, Storylist.addstory
 
-/** When user clicks on a create story link, show a (hidden) form to create story */
-
-function navShowSubmitForm(evt) {
-  // console.debug("navShowSubmitForm", evt);
-  evt.preventDefault();
-  // on click, show() the hidden stories form
-  $submitForm.show()
-
-}
-//TODO-WouldBeNice: add click listener to toggle showing/hiding
-$("nav").on("click", navShowSubmitForm)
 
 
   //UNDER THE HOOD, navbar does not change during this part
@@ -58,20 +46,27 @@ $("nav").on("click", navShowSubmitForm)
 async function navCreateNewStory(evt) {
   console.debug("navCreateNewStory", evt);
   evt.preventDefault();
-  // listen for submit button click
-  // check if the user is logged in
-  // if user is not logged in, display error message and do nothing
-  // if user is logged in: 
-    // 1. call addStory()
-    // 2. hide the form
-    // 3. refresh the page to reflect the change
+
+  // // TODO-WouldBeNice: throw error if user not logged in
+
+  // send POST request to API and save response as a new object 
   let newStory = await storyList.addStory();
-  // console.log("this is our new story", newStory);
-  // $allStoriesList.prepend(generateStoryMarkup(newStory));
-  putStoriesOnPage();  // BUG: returns an object? should it?
+  // updates story list on page without refreshing
+  putStoriesOnPage();  
+  // hide the form
   $submitForm.hide();
 }
-//TODO: make sure you dont need to refresh to update the story list
 
 $("#submit-form").on("submit", navCreateNewStory);
-// create story obj and add to story list? 
+
+/** When user clicks on a create story link, show a (hidden) form to create story */
+/**Building The UI for New Story Form/Add New Story */
+
+function navShowSubmitForm(evt) {
+  // console.debug("navShowSubmitForm", evt);
+  evt.preventDefault();
+  // on click, show() the hidden stories form
+  $submitForm.show()
+}
+//TODO-WouldBeNice: add click listener to toggle showing/hiding form
+$("nav").on("click", navShowSubmitForm)

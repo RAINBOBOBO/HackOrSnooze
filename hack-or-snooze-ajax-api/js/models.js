@@ -1,6 +1,10 @@
 "use strict";
 
 const BASE_URL = "https://hack-or-snooze-v3.herokuapp.com";
+let $submitAuthor = $('#submit-author')
+let $submitTitle =  $('#submit-title')
+let $submitURL =   $('#submit-url')
+
 
 
 /******************************************************************************
@@ -75,25 +79,19 @@ class StoryList {
    */
 
   async addStory() {
-    console.debug("addStory");
-    // TODO: complete this function
-    // arguments
-        // user: in global scope, called currentUser
-        // newStory, inputs from form
-    
-    console.log("currentUser is ", currentUser);
-    console.log("author is ", $('#submit-author').val(), "title ", $('#submit-title').val(), "url", $('#submit-url').val())
+    // console.debug("addStory");
+   
+    // console.log("currentUser is ", currentUser);
+    // console.log("author is ", $('#submit-author').val(), "title ", $('#submit-title').val(), "url", $('#submit-url').val())
     let response = await axios.post(`${BASE_URL}/stories`, {
         "token": currentUser.loginToken, 
         "story": {
-          // TODO ? refactor to be neater
-          "author": $('#submit-author').val(),
-          "title":  $('#submit-title').val(),
-          "url":    $('#submit-url').val()
+          "author": $submitAuthor.val(),
+          "title":  $submitTitle.val(),
+          "url":    $submitURL .val()
         }
     });
-    console.log("THIS IS RESPONSE", response.data.story);
-    // DEBUGGING: tried to manually add story to storylist
+    // console.log("THIS IS RESPONSE", response.data.story);
 
     let newStory = new Story(response.data.story);
     storyList.stories.unshift(newStory);
@@ -111,7 +109,7 @@ class StoryList {
               // username = storyObj.username;
               
 
-        //  expected response: newly created story
+        //  expected response: newly created story object
               // author / author of story (not user who submitted)
               // title / title of story
               // url / hostname.com - domain of 

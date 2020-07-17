@@ -2,8 +2,6 @@
 
 // This is the global list of the stories, an instance of StoryList
 let storyList;
-// why do we need to declare a storyList object in main.js AND in stories.js
-
 
 
 /**
@@ -32,15 +30,11 @@ function generateStoryMarkup(story) {
 
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
-// TODO: Why does calling this from navCreateNewStory(evt) not refresh the list?
-          // storyList now updates in real time
-          // $allStoriesList does not update in real time
-          // do we need to add a delegate to run this after submit? 
 function putStoriesOnPage() {
   console.debug("putStoriesOnPage", "storyList.stories", storyList.stories);
+  // console.debug("$allStoriesList.empty()", $allStoriesList.empty(), "$allStoriesList.show()", $allStoriesList.show())
 
   // empty out that part of the page
-  // console.debug("$allStoriesList.empty()", $allStoriesList.empty(), "$allStoriesList.show()", $allStoriesList.show())
   $allStoriesList.empty();
   // loop through all of our stories and generate HTML for them
   for (let story of storyList.stories) {
