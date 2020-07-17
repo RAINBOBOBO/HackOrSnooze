@@ -78,7 +78,7 @@ class StoryList {
    * Returns the new story object
    */
 
-    // CODEREVIEW: separate concerns, reconsider $ in naming for story parameters
+    // CODEREVIEW: separate concerns, reconsider $ in naming for story parameters DONE
     // why did we choose to call these objs instead of POJO
     // navigators: question logic and refactor as driver coodes
     

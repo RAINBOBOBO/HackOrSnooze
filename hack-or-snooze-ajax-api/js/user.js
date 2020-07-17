@@ -122,3 +122,17 @@ function updateUIOnUserLogin() {
   $allStoriesList.show();
   updateNavOnLogin();
 }
+
+/* Favorites:
+- Favorites button on the nav bar should hide the current stories and show the user's favorites list by
+  making a get req. for a list of the user's favorites.
+- Clicking on an empty star next to a story title will put that story into the user's favorites list,
+  and make a post req. to add a new favorite to the user's favorites list on the server
+- Clicking on a full star next to a story title will remove that story from the user's favorites list,
+  and make a post req. to delete a favorite from the user's favorites list on the server
+
+  * function to make a get req. for the favorites list
+  * function for changing the screen to show the favorites
+  * function to listen for click on a star and make a post req. based on the star's class (far/fas)
+ 
+*/

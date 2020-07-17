@@ -18,8 +18,8 @@ function generateStoryMarkup(story) {
   // render all the rest of the story markup
   return $(`
       <li id="${story.storyId}">
+        <i class="far fa-star"></i>
         <a class="story-link" href="${story.url}" target="a_blank">
-          <i class="far fa-star"></i>
           ${story.title}
         </a>
         <small class="story-hostname">(${hostName})</small>
@@ -32,7 +32,7 @@ function generateStoryMarkup(story) {
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 
-// CODEREVIEW: optimize & refactor to avoid clearing full list
+// CODEREVIEW: optimize & refactor to avoid clearing full list DONE
 function putStoriesOnPage() {
   console.debug("putStoriesOnPage", "storyList.stories", storyList.stories);
   // console.debug("$allStoriesList.empty()", $allStoriesList.empty(), "$allStoriesList.show()", $allStoriesList.show())
@@ -54,7 +54,7 @@ function putOneStoryOnPage(story, $thisStoryList) {
   $thisStoryList.append(markup);
 }
 
-// CODEREVIEW: Consider giving different name and moving into stories.js
+// CODEREVIEW: Consider giving different name and moving into stories.js DONE
   //UNDER THE HOOD, navbar does not change during this part
     // user fills out form & clicks submit button ??is there another function for this? 
     // send POST request to API
