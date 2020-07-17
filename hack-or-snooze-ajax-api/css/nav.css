@@ -10,6 +10,7 @@ nav {
 
 .navbar-brand {
   font-weight: bold;
+  margin-right: 8px;
 }
 
 .nav-link {
@@ -20,4 +21,9 @@ nav {
 .nav-right {
   margin-left: auto;
   text-align: right;
+}
+
+.nav-left a{
+  border-left: 1px solid black;
+  padding-left: 8px;
 }
