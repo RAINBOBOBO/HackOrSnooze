@@ -90,6 +90,7 @@ async function checkForRememberedUser() {
 }
 
 /** Sync current user information to localStorage.
+ * ?? : Is this syncing user info stored on API to user info stored in localStorage
  *
  * We store the username/token in localStorage so when the page is refreshed
  * (or the user revisits the site later), they will still be logged in.
@@ -123,13 +124,28 @@ function updateUIOnUserLogin() {
   updateNavOnLogin();
 }
 
+
+/******************************************************************************
+ * General UI stuff about favorites
+ */
+
 /* Favorites:
-- Favorites button on the nav bar should hide the current stories and show the user's favorites list by
-  making a get req. for a list of the user's favorites.
-- Clicking on an empty star next to a story title will put that story into the user's favorites list,
-  and make a post req. to add a new favorite to the user's favorites list on the server
-- Clicking on a full star next to a story title will remove that story from the user's favorites list,
-  and make a post req. to delete a favorite from the user's favorites list on the server
+
+- Add a favorite by clicking on an empty star next to a story title 
+  - add eventlistener to stars to track which story being used
+  - send a POST request to add story into the user's favorites list in server
+  - rewrite local currentUser with server's info
+  - change empty star to solid star
+
+- Deleting a favorite by clicking on a full star next to a story title 
+ - send a DELETE request to server
+      - same URL but with parameters: userToken, and story ID
+ - local currentUser with server's info (just in case)
+
+- Clicking favorites button on the nav bar 
+  - hide all components DONE
+  - if no favorites, show message that there are no faves DONE
+  - populate the page with latest user's favorites list in server
 
   * function to make a get req. for the favorites list
   * function for changing the screen to show the favorites
@@ -137,7 +153,12 @@ function updateUIOnUserLogin() {
  
 */
 
+// POST response contain user.favorites
+// FURTHER STUDY: POST response contain user.stories to account for stories added by user
+
 // function to make a get req. for the favorites list
-function getUserFavorites() {
+function updateUserFavorites() {
   console.log("currentUser is ", currentUser);
+  // send a POST request to add story into the user's favorites list in server
+  // - rewrite local currentUser with server's info
 }
