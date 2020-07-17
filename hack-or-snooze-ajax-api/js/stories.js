@@ -30,6 +30,8 @@ function generateStoryMarkup(story) {
 
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
+
+// CODEREVIEW: optimize & refactor to avoid clearing full list
 function putStoriesOnPage() {
   console.debug("putStoriesOnPage", "storyList.stories", storyList.stories);
   // console.debug("$allStoriesList.empty()", $allStoriesList.empty(), "$allStoriesList.show()", $allStoriesList.show())

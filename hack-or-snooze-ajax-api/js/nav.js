@@ -39,7 +39,7 @@ function updateNavOnLogin() {
 
 
 
-
+// CODEREVIEW: Consider giving different name and moving into stories.js
   //UNDER THE HOOD, navbar does not change during this part
     // user fills out form & clicks submit button ??is there another function for this? 
     // send POST request to API
