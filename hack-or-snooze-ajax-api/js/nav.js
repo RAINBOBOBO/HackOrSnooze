@@ -52,7 +52,9 @@ function navShowSubmitForm(evt) {
   //UNDER THE HOOD, navbar does not change during this part
     // user fills out form & clicks submit button ??is there another function for this? 
     // send POST request to API
-function navCreateNewStory() {
+function navCreateNewStory(evt) {
+  console.debug("navCreateNewStory", evt);
+  evt.preventDefault();
   // listen for submit button click
   // check if the user is logged in
   // if user is not logged in, display error message and do nothing
@@ -64,3 +66,5 @@ function navCreateNewStory() {
   $submitForm.hide()
   putStoriesOnPage()
 }
+
+$("#submit-form").on("submit", navCreateNewStory);
