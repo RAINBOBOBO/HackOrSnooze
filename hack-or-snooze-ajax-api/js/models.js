@@ -93,11 +93,12 @@ class StoryList {
         }
     });
     console.log("THIS IS RESPONSE", response.data.story);
-    // storyList.stories.push(response);
     // DEBUGGING: tried to manually add story to storylist
 
-    let newStoryHTML = new Story(response.data.story);
-    $allStoriesList.prepend(generateStoryMarkup(newStoryHTML)); 
+    let newStory = new Story(response.data.story);
+    storyList.stories.unshift(newStory);
+
+    return newStory;
     // // From Prompt
 
     // userInfo will be passed while adding story to storiesList

@@ -65,7 +65,9 @@ async function navCreateNewStory(evt) {
     // 1. call addStory()
     // 2. hide the form
     // 3. refresh the page to reflect the change
-  await storyList.addStory(); 
+  let newStory = await storyList.addStory();
+  // console.log("this is our new story", newStory);
+  // $allStoriesList.prepend(generateStoryMarkup(newStory));
   putStoriesOnPage();  // BUG: returns an object? should it?
   $submitForm.hide();
 }
