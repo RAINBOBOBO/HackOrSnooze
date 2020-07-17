@@ -26,6 +26,8 @@ async function login(evt) {
 
   saveUserCredentialsInLocalStorage();
   updateUIOnUserLogin();
+  console.log("currentUser: ",currentUser,"saveUserCredentialsInLocalStorage(): ", saveUserCredentialsInLocalStorage(), "updateUIOnUserLogin(): ", updateUIOnUserLogin())
+
 }
 
 $loginForm.on("submit", login);

@@ -43,9 +43,9 @@ function updateNavOnLogin() {
 
 function navShowSubmitForm(evt) {
   console.debug("navShowSubmitForm", evt);
+  evt.preventDefault();
   // on click, show() the hidden stories form
-  // TODO create jQuery objects in main
-  $navCreateNewStoryForm.show() // TODO
+  $submitForm.show()
 }
 
 
@@ -60,6 +60,7 @@ function navCreateNewStory() {
   // 1. call addStory()
   // 2. hide the form
   // 3. refresh the page to reflect the change
-  $submitForm.hide() // TODO
+  addStory()
+  $submitForm.hide()
   putStoriesOnPage()
 }

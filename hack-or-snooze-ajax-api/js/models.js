@@ -75,24 +75,44 @@ class StoryList {
    */
 
   async addStory(user, newStory) {
+    console.debug("addStory", user, newStory)
     // TODO: complete this function
+    // arguments
+        // user: in global scope, called currentUser
+        // newStory, inputs from form
+    
 
-    // From Prompt
-    let response = await axios.post(`${BASE_URL}/stories`, );
+    let response = await axios.post(`${BASE_URL}/stories`, {
+        "token": currentUser.loginToken, 
+        "story": {
+          // TODO ? refactor to be neater
+          "author": $('#submit-author').val(),
+          "title":  $('#submit-title').val(),
+          "url":    $('submit-url').val(),
+        }
+    });
+    console.log(response);
+    // Thursday 5PM: ERROR 500; we don't have event listener
+    // // From Prompt
 
     // userInfo will be passed while adding story to storiesList
     // POST request to API
-        // send in header, content-type app/JSON
+        // ? possibly unnecessary? send in header, content-type app/JSON
         // add this info as a object in the body
-              // this.author = storyObj.author; // author of story (not user who submitted)
-              // this.title = storyObj.title;   // title of story
-              // this.url = storyObj.url;       // hostname.com - domain of 
-              // this.username = storyObj.username;
-              // this.storyId = storyObj.storyId;
-              // this.createdAt = storyObj.createdAt;
-              // this.updatedAt = storyObj.updatedAt;
+              // author = storyObj.author; // author of story (not user who submitted)
+              // title = storyObj.title;   // title of story
+              // url = storyObj.url;       // hostname.com - domain of 
+              // username = storyObj.username;
+              
 
         //  expected response: newly created story
+              // author / author of story (not user who submitted)
+              // title / title of story
+              // url / hostname.com - domain of 
+              // username 
+              // storyId 
+              // createdAt
+              // updatedAt
     // append to DOM with function with addStory() (in models.js)
 
   }
